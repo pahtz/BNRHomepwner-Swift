@@ -43,4 +43,32 @@ class BNRItemStore: NSObject {
     {
         return privateItems.count
     }
+    
+    func indexOfItem(item: BNRItem) -> (Int)
+    {
+        return privateItems.indexOfObject(item)
+    }
+    
+    func removeItem(item: BNRItem)
+    {
+        privateItems.removeObjectIdenticalTo(item)
+    }
+    
+    func itemAtIndex(index: Int) -> (BNRItem)
+    {
+        return privateItems[index] as BNRItem
+    }
+    
+    func moveItemAtIndex(atIndex: Int, toIndex: Int)
+    {
+        if atIndex == toIndex {
+            return
+        }
+        
+        //Get pointer to object being moved so you an re-insert it
+        var item = itemAtIndex(atIndex)
+        privateItems.removeObjectAtIndex(atIndex)
+        privateItems.insertObject(item, atIndex: toIndex)
+    }
+
 }

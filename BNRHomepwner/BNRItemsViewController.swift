@@ -10,6 +10,37 @@ import UIKit
 
 class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var headerView : UIView
+    
+    @IBAction func addNewItem(sender: UIButton)
+    {
+        println("addNewItem clicked")
+        //Create a new BNRItem and add it to the store
+        let newItem = BNRItemStore.sharedStore.createItem()
+        
+        //Figure out where that item is in the array
+        let lastRow = BNRItemStore.sharedStore.indexOfItem(newItem)
+        let indexPath = NSIndexPath(forRow: lastRow, inSection: 0)
+        
+        //Insert the new row into the table
+        tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
+    }
+    
+    @IBAction func toggleEditingMode(sender: UIButton)
+    {
+        println("toggleEditingMode toggled")
+        //If you are currently in editing mode...
+        if (editing) {
+            //Change text of button to infrom user of state
+            sender.setTitle("Edit", forState: UIControlState.Normal)
+            setEditing(false, animated: true)
+        } else {
+            //Change text of button to inform user of state
+            sender.setTitle("Done", forState: UIControlState.Normal)
+            setEditing(true, animated: true)
+        }
+    }
+    
     init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
     {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -23,11 +54,6 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
     init() {
         //Call the superclasss's designated intializer
         super.init(style: UITableViewStyle.Plain)
-        
-        for _ in 1..5
-        {
-            BNRItemStore.sharedStore.createItem()
-        }
     }
     
     
@@ -41,6 +67,8 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         tableView.backgroundView = UIImageView(image: UIImage(named: "Background.png"))
+
+        tableView.tableHeaderView = headerView
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -64,7 +92,7 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return BNRItemStore.sharedStore.allItems().count + 1
+        return BNRItemStore.sharedStore.itemCount() + 1  //add +1 for Silver Challenge
     }
     
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
@@ -72,12 +100,10 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         let last = BNRItemStore.sharedStore.itemCount()
         if (indexPath.row == last)
         {
-            println("TableViewCell row height suggested to be 44")
             return 44.0
         }
         else
         {
-            println("TableViewCell row height suggested to be 60")
             return 60.0
         }
     }
@@ -111,6 +137,67 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         return cell
     }
     
+    override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!)
+    {
+        //If the table view is asking to commit a delete command...
+        if (editingStyle == UITableViewCellEditingStyle.Delete)
+        {
+            var item = BNRItemStore.sharedStore.itemAtIndex(indexPath.row)
+            BNRItemStore.sharedStore.removeItem(item)
+            
+            //Also remove that row from the table view with an animation
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        }
+    }
+    
+    override func tableView(tableView: UITableView!, moveRowAtIndexPath sourceIndexPath: NSIndexPath!, toIndexPath destinationIndexPath: NSIndexPath!)
+    {
+        BNRItemStore.sharedStore.moveItemAtIndex(sourceIndexPath.row, toIndex: destinationIndexPath.row)
+    }
+    
+    //Prevent editing / deleting last row
+    override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool
+    {
+        let lastRowIndex = BNRItemStore.sharedStore.itemCount()
+        
+        if (indexPath.row == lastRowIndex)
+        {
+            return false
+        }
+        return true
+    }
+    
+    //Silver Challenge:prevent reordering the last row (No more items!)
+    override func tableView(tableView: UITableView!, canMoveRowAtIndexPath indexPath: NSIndexPath!) -> Bool
+    {
+        let lastRowIndex = BNRItemStore.sharedStore.itemCount()
+        
+        if (indexPath.row >= lastRowIndex)
+        {
+            return false
+        }
+        return true
+    }
+    
+    //Gold Challenge: preventing reordering beyond / to the last row
+    override func tableView(tableView: UITableView!, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath!, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath!) -> NSIndexPath!
+    {
+        let lastRowIndex = BNRItemStore.sharedStore.itemCount()
+        
+        if (proposedDestinationIndexPath.row >= lastRowIndex) {
+            return NSIndexPath(forRow: lastRowIndex-1, inSection: 0)
+        }
+        else
+        {
+            return proposedDestinationIndexPath
+        }
+    }
+    
+    //Bronze Challenge: renaming the Delete Button
+    override func tableView(tableView: UITableView!, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath!) -> String!
+    {
+        return "Remove"
+    }
     
     /*
     // Override to support conditional editing of the table view.
