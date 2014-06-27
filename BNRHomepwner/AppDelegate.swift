@@ -17,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         // Override point for customization after application launch.
+        
+        //Create a BNRItemsViewController
+        var itemsViewController = BNRItemsViewController()
+        
+        //Place BNRItemsViewController's table view in the window hierarchy
+        self.window!.rootViewController = itemsViewController
+        
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
         return true

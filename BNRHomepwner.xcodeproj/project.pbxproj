@@ -10,6 +10,12 @@
 		DA2E3B53195BEB0C00F70B2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E3B52195BEB0C00F70B2E /* AppDelegate.swift */; };
 		DA2E3B55195BEB0C00F70B2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2E3B54195BEB0C00F70B2E /* Images.xcassets */; };
 		DA2E3B61195BEB0C00F70B2E /* BNRHomepwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E3B60195BEB0C00F70B2E /* BNRHomepwnerTests.swift */; };
+		DA2E3B6E195BEC6400F70B2E /* BNRItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E3B6C195BEC6400F70B2E /* BNRItemsViewController.swift */; };
+		DA2E3B6F195BEC6400F70B2E /* BNRItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2E3B6D195BEC6400F70B2E /* BNRItemsViewController.xib */; };
+		DA2E3B71195BF02200F70B2E /* BNRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E3B70195BF02200F70B2E /* BNRItem.swift */; };
+		DA2E3B73195BF19D00F70B2E /* BNRItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E3B72195BF19D00F70B2E /* BNRItemStore.swift */; };
+		DA2E3B7A195C2AD900F70B2E /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2E3B78195C2AD900F70B2E /* Background@2x.png */; };
+		DA2E3B7B195C2AD900F70B2E /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2E3B79195C2AD900F70B2E /* Background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +36,12 @@
 		DA2E3B5A195BEB0C00F70B2E /* BNRHomepwnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BNRHomepwnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2E3B5F195BEB0C00F70B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA2E3B60195BEB0C00F70B2E /* BNRHomepwnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BNRHomepwnerTests.swift; sourceTree = "<group>"; };
+		DA2E3B6C195BEC6400F70B2E /* BNRItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItemsViewController.swift; sourceTree = "<group>"; };
+		DA2E3B6D195BEC6400F70B2E /* BNRItemsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRItemsViewController.xib; sourceTree = "<group>"; };
+		DA2E3B70195BF02200F70B2E /* BNRItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BNRItem.swift; path = BNRHomepwner/BNRItem.swift; sourceTree = "<group>"; };
+		DA2E3B72195BF19D00F70B2E /* BNRItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BNRItemStore.swift; path = BNRHomepwner/BNRItemStore.swift; sourceTree = "<group>"; };
+		DA2E3B78195C2AD900F70B2E /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		DA2E3B79195C2AD900F70B2E /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +65,8 @@
 		DA2E3B44195BEB0C00F70B2E = {
 			isa = PBXGroup;
 			children = (
+				DA2E3B70195BF02200F70B2E /* BNRItem.swift */,
+				DA2E3B72195BF19D00F70B2E /* BNRItemStore.swift */,
 				DA2E3B4F195BEB0C00F70B2E /* BNRHomepwner */,
 				DA2E3B5D195BEB0C00F70B2E /* BNRHomepwnerTests */,
 				DA2E3B4E195BEB0C00F70B2E /* Products */,
@@ -72,7 +86,11 @@
 			isa = PBXGroup;
 			children = (
 				DA2E3B52195BEB0C00F70B2E /* AppDelegate.swift */,
+				DA2E3B6C195BEC6400F70B2E /* BNRItemsViewController.swift */,
+				DA2E3B6D195BEC6400F70B2E /* BNRItemsViewController.xib */,
 				DA2E3B54195BEB0C00F70B2E /* Images.xcassets */,
+				DA2E3B78195C2AD900F70B2E /* Background@2x.png */,
+				DA2E3B79195C2AD900F70B2E /* Background.png */,
 				DA2E3B50195BEB0C00F70B2E /* Supporting Files */,
 			);
 			path = BNRHomepwner;
@@ -182,6 +200,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA2E3B7A195C2AD900F70B2E /* Background@2x.png in Resources */,
+				DA2E3B7B195C2AD900F70B2E /* Background.png in Resources */,
+				DA2E3B6F195BEC6400F70B2E /* BNRItemsViewController.xib in Resources */,
 				DA2E3B55195BEB0C00F70B2E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,7 +221,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA2E3B6E195BEC6400F70B2E /* BNRItemsViewController.swift in Sources */,
+				DA2E3B71195BF02200F70B2E /* BNRItem.swift in Sources */,
 				DA2E3B53195BEB0C00F70B2E /* AppDelegate.swift in Sources */,
+				DA2E3B73195BF19D00F70B2E /* BNRItemStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +332,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BNRHomepwner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -319,6 +344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BNRHomepwner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
