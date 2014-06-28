@@ -22,7 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var itemsViewController = BNRItemsViewController()
         
         //Place BNRItemsViewController's table view in the window hierarchy
-        self.window!.rootViewController = itemsViewController
+        
+        //Create an instance of a UINavigationController
+        //its stack contains only itemsViewController
+        var navController = UINavigationController(rootViewController: itemsViewController)
+        
+        //Place navigation controller's view in the window hierarchy
+        window!.rootViewController = navController
         
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()

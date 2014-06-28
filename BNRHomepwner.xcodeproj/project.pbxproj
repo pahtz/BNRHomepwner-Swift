@@ -16,6 +16,10 @@
 		DA2E3B73195BF19D00F70B2E /* BNRItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E3B72195BF19D00F70B2E /* BNRItemStore.swift */; };
 		DA2E3B7A195C2AD900F70B2E /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2E3B78195C2AD900F70B2E /* Background@2x.png */; };
 		DA2E3B7B195C2AD900F70B2E /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2E3B79195C2AD900F70B2E /* Background.png */; };
+		DAC883D0195EC8A80089FB07 /* BNRDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC883CE195EC8A80089FB07 /* BNRDetailViewController.swift */; };
+		DAC883D1195EC8A80089FB07 /* BNRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC883CF195EC8A80089FB07 /* BNRDetailViewController.xib */; };
+		DAC883D4195EF74B0089FB07 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC883D2195EF74B0089FB07 /* DatePickerViewController.swift */; };
+		DAC883D5195EF74B0089FB07 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC883D3195EF74B0089FB07 /* DatePickerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,10 @@
 		DA2E3B72195BF19D00F70B2E /* BNRItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItemStore.swift; sourceTree = "<group>"; };
 		DA2E3B78195C2AD900F70B2E /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
 		DA2E3B79195C2AD900F70B2E /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		DAC883CE195EC8A80089FB07 /* BNRDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRDetailViewController.swift; sourceTree = "<group>"; };
+		DAC883CF195EC8A80089FB07 /* BNRDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRDetailViewController.xib; sourceTree = "<group>"; };
+		DAC883D2195EF74B0089FB07 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		DAC883D3195EF74B0089FB07 /* DatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				DA2E3B52195BEB0C00F70B2E /* AppDelegate.swift */,
+				DAC883D2195EF74B0089FB07 /* DatePickerViewController.swift */,
+				DAC883D3195EF74B0089FB07 /* DatePickerViewController.xib */,
+				DAC883CE195EC8A80089FB07 /* BNRDetailViewController.swift */,
+				DAC883CF195EC8A80089FB07 /* BNRDetailViewController.xib */,
 				DA2E3B70195BF02200F70B2E /* BNRItem.swift */,
 				DA2E3B72195BF19D00F70B2E /* BNRItemStore.swift */,
 				DA2E3B6C195BEC6400F70B2E /* BNRItemsViewController.swift */,
@@ -200,10 +212,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC883D5195EF74B0089FB07 /* DatePickerViewController.xib in Resources */,
 				DA2E3B7A195C2AD900F70B2E /* Background@2x.png in Resources */,
 				DA2E3B7B195C2AD900F70B2E /* Background.png in Resources */,
 				DA2E3B6F195BEC6400F70B2E /* BNRItemsViewController.xib in Resources */,
 				DA2E3B55195BEB0C00F70B2E /* Images.xcassets in Resources */,
+				DAC883D1195EC8A80089FB07 /* BNRDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA2E3B6E195BEC6400F70B2E /* BNRItemsViewController.swift in Sources */,
+				DAC883D0195EC8A80089FB07 /* BNRDetailViewController.swift in Sources */,
+				DAC883D4195EF74B0089FB07 /* DatePickerViewController.swift in Sources */,
 				DA2E3B71195BF02200F70B2E /* BNRItem.swift in Sources */,
 				DA2E3B53195BEB0C00F70B2E /* AppDelegate.swift in Sources */,
 				DA2E3B73195BF19D00F70B2E /* BNRItemStore.swift in Sources */,

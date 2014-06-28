@@ -54,7 +54,7 @@ class BNRItem: NSObject {
         let adjectiveIndex = Int(arc4random()) % randomAdjectiveList.count
         let nounIndex = Int(arc4random()) % randomNounList.count
         
-        let randomName = "\(randomAdjectiveList[adjectiveIndex])\(randomNounList[nounIndex])"
+        let randomName = "\(randomAdjectiveList[adjectiveIndex]) \(randomNounList[nounIndex])"
         
         let randomValue = Int(arc4random()) % 100
         

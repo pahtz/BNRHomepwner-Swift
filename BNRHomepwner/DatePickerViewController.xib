@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6154.21" systemVersion="14A261i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DatePickerViewController" customModule="BNRHomepwner" customModuleProvider="target">
+            <connections>
+                <outlet property="datePicker" destination="802-M8-pDP" id="iqB-ly-0Gx"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="802-M8-pDP">
+                    <rect key="frame" x="0.0" y="159" width="480" height="162"/>
+                    <date key="date" timeIntervalSinceReferenceDate="425654137.75181198">
+                        <!--<__NSTaggedDate Class=2014-06-28 13:15:37 +0000 timeInterval=425654137.751812 ISO8601=2014-06-28T21:15:37.752+0800>-->
+                    </date>
+                </datePicker>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="802-M8-pDP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YTe-ep-nrv"/>
+                <constraint firstAttribute="trailing" secondItem="802-M8-pDP" secondAttribute="trailing" id="cv2-V8-ORU"/>
+                <constraint firstItem="802-M8-pDP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="lAd-sr-Ys8"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="AbstractSizeClassScreen[default]"/>
+        </view>
+    </objects>
+</document>

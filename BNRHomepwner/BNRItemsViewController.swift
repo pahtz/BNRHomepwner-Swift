@@ -10,8 +10,6 @@ import UIKit
 
 class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var headerView : UIView
-    
     @IBAction func addNewItem(sender: UIButton)
     {
         println("addNewItem clicked")
@@ -26,21 +24,6 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
     }
     
-    @IBAction func toggleEditingMode(sender: UIButton)
-    {
-        println("toggleEditingMode toggled")
-        //If you are currently in editing mode...
-        if (editing) {
-            //Change text of button to infrom user of state
-            sender.setTitle("Edit", forState: UIControlState.Normal)
-            setEditing(false, animated: true)
-        } else {
-            //Change text of button to inform user of state
-            sender.setTitle("Done", forState: UIControlState.Normal)
-            setEditing(true, animated: true)
-        }
-    }
-    
     init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
     {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -51,15 +34,26 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         super.init(coder: aDecoder)
     }
     
-    init() {
+    convenience init() {
         //Call the superclasss's designated intializer
-        super.init(style: UITableViewStyle.Plain)
+        self.init(style: UITableViewStyle.Plain)
     }
     
     
     init(style: UITableViewStyle) {
         super.init(style: UITableViewStyle.Plain)
         // Custom initialization
+        var navItem = navigationItem
+        navItem.title = "Homepwner"
+        
+        //Create a new bar button item that will send
+        //addNewItem() to BNRItemsViewController
+        var bbi = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addNewItem:")
+        
+        //Set this bar button item as the right item in the navigationItem
+        navItem.rightBarButtonItem = bbi
+        
+        navItem.leftBarButtonItem = editButtonItem()
     }
     
     override func viewDidLoad() {
@@ -68,12 +62,17 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         tableView.backgroundView = UIImageView(image: UIImage(named: "Background.png"))
 
-        tableView.tableHeaderView = headerView
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,6 +81,18 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
     }
     
     // #pragma mark - Table view data source
+    
+    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    {
+        var detailViewController = BNRDetailViewController()
+        
+        var selectedItem = BNRItemStore.sharedStore.itemAtIndex(indexPath.row)
+        
+        //Give detail view controller a pointer to the item object in row
+        detailViewController.item = selectedItem
+        
+        navigationController.pushViewController(detailViewController, animated: true)
+    }
     
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
         // #warning Potentially incomplete method implementation.
