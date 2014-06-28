@@ -84,6 +84,13 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
     
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
     {
+        let lastRowIndex = BNRItemStore.sharedStore.itemCount()
+        
+        if (indexPath.row == lastRowIndex)
+        {
+            return
+        }
+        
         var detailViewController = BNRDetailViewController()
         
         var selectedItem = BNRItemStore.sharedStore.itemAtIndex(indexPath.row)
