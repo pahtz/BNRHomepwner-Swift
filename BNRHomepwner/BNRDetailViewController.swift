@@ -24,7 +24,7 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
     @IBOutlet var dateLabel: UILabel
     @IBOutlet var imageView: UIImageView
     @IBOutlet var toobar: UIToolbar
-    @IBOutlet var cameraOverlayView: UIView //fix: should be a strong var
+    @IBOutlet strong var cameraOverlayView: UIView //Gold challenge
     
     @IBAction func takePicture(sender: UIBarButtonItem) {
         var imagePicker = UIImagePickerController()
@@ -68,10 +68,12 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
     
     init(coder aDecoder: NSCoder!)
     {
+        cameraOverlayView = UIView() //Gold Challenge - will be replaced by xib
         super.init(coder: aDecoder)
     }
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        cameraOverlayView = UIView() //Gold Challenge - will be replaced by xib
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
     }
