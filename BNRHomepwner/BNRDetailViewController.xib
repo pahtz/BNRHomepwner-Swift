@@ -89,7 +89,7 @@
                     </items>
                 </toolbar>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgS-fr-qk1">
-                    <rect key="frame" x="195" y="225" width="90" height="30"/>
+                    <rect key="frame" x="195" y="231" width="90" height="30"/>
                     <state key="normal" title="Change Date">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -98,7 +98,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="krP-YC-4v0">
-                    <rect key="frame" x="20" y="274" width="440" height="162"/>
+                    <rect key="frame" x="20" y="269" width="440" height="167"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -108,18 +108,18 @@
                 <constraint firstItem="6O8-2e-7ph" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="Bac-2a-Mxb"/>
                 <constraint firstItem="gdC-xg-yHm" firstAttribute="baseline" secondItem="k5v-rZ-xgo" secondAttribute="baseline" id="CRf-89-PLb"/>
                 <constraint firstAttribute="trailing" secondItem="pxI-2c-PM0" secondAttribute="trailing" constant="20" symbolic="YES" id="Dhk-9f-YDd"/>
-                <constraint firstItem="krP-YC-4v0" firstAttribute="top" secondItem="sgS-fr-qk1" secondAttribute="bottom" constant="19" id="GAP-Cu-a6Y"/>
-                <constraint firstItem="sgS-fr-qk1" firstAttribute="centerX" secondItem="LPp-nG-MR7" secondAttribute="centerX" id="HkX-AK-UHv"/>
                 <constraint firstItem="9ni-fU-TSp" firstAttribute="leading" secondItem="LPp-nG-MR7" secondAttribute="leading" id="IBE-gw-H7D"/>
                 <constraint firstItem="krP-YC-4v0" firstAttribute="centerX" secondItem="uZ3-w3-lir" secondAttribute="centerX" id="Jl5-eC-X8i"/>
                 <constraint firstItem="krP-YC-4v0" firstAttribute="leading" secondItem="LPp-nG-MR7" secondAttribute="leading" id="LaD-zS-2S4"/>
                 <constraint firstItem="6O8-2e-7ph" firstAttribute="leading" secondItem="gdC-xg-yHm" secondAttribute="leading" id="Lhl-jT-kMR"/>
                 <constraint firstItem="E6B-UP-iUp" firstAttribute="trailing" secondItem="LPp-nG-MR7" secondAttribute="trailing" id="NeZ-HP-ZDp"/>
+                <constraint firstAttribute="centerX" secondItem="sgS-fr-qk1" secondAttribute="centerX" id="OVH-wm-8k3"/>
                 <constraint firstItem="E6B-UP-iUp" firstAttribute="trailing" secondItem="k5v-rZ-xgo" secondAttribute="trailing" id="SVq-tE-xoG"/>
+                <constraint firstItem="sgS-fr-qk1" firstAttribute="top" secondItem="LPp-nG-MR7" secondAttribute="bottom" constant="8" symbolic="YES" id="VB0-5x-X1v"/>
                 <constraint firstItem="k5v-rZ-xgo" firstAttribute="top" secondItem="pxI-2c-PM0" secondAttribute="bottom" constant="8" symbolic="YES" id="W1G-Sq-51H"/>
                 <constraint firstItem="pxI-2c-PM0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="88" id="XKW-KT-rOx"/>
-                <constraint firstItem="sgS-fr-qk1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Xdc-KK-Mz9"/>
                 <constraint firstItem="krP-YC-4v0" firstAttribute="bottom" secondItem="uZ3-w3-lir" secondAttribute="top" id="a8o-ps-LsV"/>
+                <constraint firstItem="krP-YC-4v0" firstAttribute="top" secondItem="sgS-fr-qk1" secondAttribute="bottom" constant="8" symbolic="YES" id="aAZ-ZE-MyM"/>
                 <constraint firstItem="E6B-UP-iUp" firstAttribute="top" secondItem="k5v-rZ-xgo" secondAttribute="bottom" constant="8" symbolic="YES" id="e5J-tp-swl"/>
                 <constraint firstItem="pxI-2c-PM0" firstAttribute="leading" secondItem="6O8-2e-7ph" secondAttribute="trailing" constant="8" symbolic="YES" id="fqe-yj-BMh"/>
                 <constraint firstItem="LPp-nG-MR7" firstAttribute="top" secondItem="E6B-UP-iUp" secondAttribute="bottom" constant="8" symbolic="YES" id="gcV-dM-Rds"/>
