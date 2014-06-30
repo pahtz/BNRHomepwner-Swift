@@ -34,7 +34,7 @@ class BNRItem: NSObject {
         {
             let digits = ["0","1","2","3","4","5","6","7","8","9"]
             
-            let index = Int(arc4random()) % 10
+            let index = Int(arc4random_uniform(10))
             
             return digits[index]
         }
@@ -43,7 +43,7 @@ class BNRItem: NSObject {
         {
             let alphas = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
             
-            let index = Int(arc4random()) % 26
+            let index = Int(arc4random_uniform(26))
             
             return alphas[index]
         }
@@ -51,12 +51,12 @@ class BNRItem: NSObject {
         let randomAdjectiveList = ["Fluffy", "Rusty", "Shiny"]
         let randomNounList = ["Bear", "Spork", "Mac"]
         
-        let adjectiveIndex = Int(arc4random()) % randomAdjectiveList.count
-        let nounIndex = Int(arc4random()) % randomNounList.count
+        let adjectiveIndex = Int(arc4random_uniform(UInt32(randomAdjectiveList.count)))
+        let nounIndex = Int(arc4random_uniform(UInt32(randomNounList.count)))
         
-        let randomName = "\(randomAdjectiveList[adjectiveIndex])\(randomNounList[nounIndex])"
+        let randomName = "\(randomAdjectiveList[adjectiveIndex]) \(randomNounList[nounIndex])"
         
-        let randomValue = Int(arc4random()) % 100
+        let randomValue = Int(arc4random_uniform(100))
         
         let randomSerialNumber = "\(randomDigit())\(randomAlpha())\(randomDigit())\(randomAlpha())\(randomDigit())"
         

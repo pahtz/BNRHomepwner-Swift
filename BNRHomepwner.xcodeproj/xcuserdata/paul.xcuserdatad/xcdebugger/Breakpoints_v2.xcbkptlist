@@ -65,6 +65,50 @@
             endingLineNumber = "160"
             landmarkName = "tableView(_:moveRowAtIndexPath:toIndexPath:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BNRHomepwner.BNRItemsViewController.tableView (BNRHomepwner.BNRItemsViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableView&gt;, commitEditingStyle : C.UITableViewCellEditingStyle, forRowAtIndexPath : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSIndexPath&gt;) -&gt; ()"
+                  moduleName = "BNRHomepwner"
+                  urlString = "file:///Users/paul/GitHub/BNRHomepwner-Swift/BNRHomepwner/BNRItemsViewController.swift"
+                  timestampString = "425836950.242795"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BNRHomepwner.BNRItemsViewController.tableView (BNRHomepwner.BNRItemsViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableView&gt;, commitEditingStyle : C.UITableViewCellEditingStyle, forRowAtIndexPath : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSIndexPath&gt;) -&gt; ()"
+                  moduleName = "BNRHomepwner"
+                  urlString = "file:///Users/paul/GitHub/BNRHomepwner-Swift/BNRHomepwner/BNRItemsViewController.swift"
+                  timestampString = "425836950.242902"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "1572">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BNRHomepwner.BNRItemsViewController.tableView (BNRHomepwner.BNRItemsViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableView&gt;, commitEditingStyle : C.UITableViewCellEditingStyle, forRowAtIndexPath : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSIndexPath&gt;) -&gt; ()"
+                  moduleName = "BNRHomepwner"
+                  urlString = "file:///Users/paul/GitHub/BNRHomepwner-Swift/BNRHomepwner/BNRItemsViewController.swift"
+                  timestampString = "425836950.242991"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "1624">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
