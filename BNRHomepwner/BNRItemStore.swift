@@ -51,6 +51,8 @@ class BNRItemStore: NSObject {
     
     func removeItem(item: BNRItem)
     {
+        BNRImageStore.sharedStore.deleteImageForKey(item.itemKey)
+        
         privateItems.removeObjectIdenticalTo(item)
     }
     

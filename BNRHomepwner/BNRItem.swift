@@ -13,6 +13,7 @@ class BNRItem: NSObject {
     var serialNumber : String = ""
     var valueInDollars : Int = 0
     var dateCreated : NSDate = NSDate()
+    var itemKey : String!
     
     init(name: String, value: Int, serial: String)
     {
@@ -20,12 +21,11 @@ class BNRItem: NSObject {
         itemName = name
         valueInDollars = value
         serialNumber = serial
-    }
-    
-    init(name: String)
-    {
-        super.init()
-        itemName = name
+        
+        //Create an NSUUID object - and get its string representation
+        let uuid = NSUUID()
+        let key = uuid.UUIDString
+        itemKey = key
     }
     
     class func randomItem() -> (BNRItem)

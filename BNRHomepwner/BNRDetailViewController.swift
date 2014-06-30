@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import MobileCoreServices
 
-class BNRDetailViewController: UIViewController {
+class BNRDetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate,
+    UITextFieldDelegate {
 
     var item : BNRItem? {
     didSet {
@@ -20,11 +22,48 @@ class BNRDetailViewController: UIViewController {
     @IBOutlet var serialNumberField: UITextField
     @IBOutlet var valueField: UITextField
     @IBOutlet var dateLabel: UILabel
+    @IBOutlet var imageView: UIImageView
+    @IBOutlet var toobar: UIToolbar
+    @IBOutlet var cameraOverlayView: UIView //fix: should be a strong var
+    
+    @IBAction func takePicture(sender: UIBarButtonItem) {
+        var imagePicker = UIImagePickerController()
+        
+        //If the device has a camera, take a pictur, otherwise,
+        //just pick from photo library
+        if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera))
+        {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            imagePicker.cameraOverlayView = cameraOverlayView //Gold challenge
+        }
+        else
+        {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
+        imagePicker.delegate = self
+        imagePicker.mediaTypes = [kUTTypeImage]
+        imagePicker.allowsEditing = true
+        imagePicker.allowsImageEditing = true //Bronze challenge
+        
+        //Place image picker on the screen
+        presentViewController(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    //Silver Challenge: Removing an Image
+    @IBAction func trashPicture(sender: UIBarButtonItem) {
+        BNRImageStore.sharedStore.deleteImageForKey(item!.itemKey)
+        imageView.image = nil
+    }
     
     @IBAction func changeDateButton(sender: UIButton) {
         var datePicker = DatePickerViewController()
         datePicker.item = item!
         navigationController.pushViewController(datePicker, animated: true)
+    }
+    
+    @IBAction func backgroundTapped(sender: AnyObject) {
+        view.endEditing(true)
     }
     
     init(coder aDecoder: NSCoder!)
@@ -36,7 +75,30 @@ class BNRDetailViewController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
     }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: NSDictionary!)
+    {
+        println("ImagePicker didFinishPickingMedia")
+        // Get picked image from info dictionary
+        var image = info[UIImagePickerControllerEditedImage] as UIImage //Bronze challenge change to edited image
+        
+        //Store the image in the BNRImageStore for this key
+        BNRImageStore.sharedStore.setImage(image, forKey: item!.itemKey)
+        
+        //Put that image onto the screen in our image view
+        imageView.image = image
+        
+        //Take image picker off the screen -
+        //you must call this dismiss method
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
+    func textFieldShouldReturn(textField: UITextField) -> (Bool)
+    {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
@@ -53,6 +115,10 @@ class BNRDetailViewController: UIViewController {
         
         //Use filtered NSDate objet to set dateLabel contents
         dateLabel.text = dateFormatter.stringFromDate(editableItem.dateCreated)
+        
+        //Get the image for its image key from the image store
+        //and use that image to put on the screen in the imageView
+        imageView.image = BNRImageStore.sharedStore.imageForKey(item!.itemKey)
     }
     
     override func viewWillDisappear(animated: Bool)
