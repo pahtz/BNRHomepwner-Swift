@@ -25,6 +25,7 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
     @IBOutlet var imageView: UIImageView
     @IBOutlet var toobar: UIToolbar
     @IBOutlet strong var cameraOverlayView: UIView //Gold challenge
+    @IBOutlet var cameraButton: UIBarButtonItem
     
     @IBAction func takePicture(sender: UIBarButtonItem) {
         var imagePicker = UIImagePickerController()
@@ -78,6 +79,27 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
         // Custom initialization
     }
     
+    func prepareViewsForOrientation(orientation: UIInterfaceOrientation)
+    {
+        //Is it iPad? No preparation necessary
+        if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad { return }
+        
+        //Is it landscape?
+        if UIInterfaceOrientationIsLandscape(orientation)
+        {
+            imageView.hidden = true
+            cameraButton.enabled = false
+        } else {
+            imageView.hidden = false
+            cameraButton.enabled = true
+        }
+    }
+    
+    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
+    {
+        prepareViewsForOrientation(toInterfaceOrientation)
+    }
+    
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: NSDictionary!)
     {
         println("ImagePicker didFinishPickingMedia")
@@ -104,6 +126,9 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
+        
+        let io = UIApplication.sharedApplication().statusBarOrientation
+        prepareViewsForOrientation(io)
         
         var editableItem = self.item!
         nameField.text = editableItem.itemName

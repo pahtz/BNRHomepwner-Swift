@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BNRDetailViewController" customModule="BNRHomepwner" customModuleProvider="target">
             <connections>
+                <outlet property="cameraButton" destination="LWq-cC-LGN" id="bCV-1B-Ozc"/>
                 <outlet property="cameraOverlayView" destination="9EM-eu-Ivs" id="ViD-Bg-cak"/>
                 <outlet property="dateLabel" destination="LPp-nG-MR7" id="0L2-Uu-FAn"/>
                 <outlet property="imageView" destination="krP-YC-4v0" id="aJg-UR-NNY"/>
