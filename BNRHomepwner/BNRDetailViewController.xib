@@ -144,7 +144,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="┼" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZT-6P-aQo">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="┼" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZT-6P-aQo">
                     <rect key="frame" x="232" y="229" width="17" height="21"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -153,6 +153,10 @@
                 </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="tZT-6P-aQo" secondAttribute="centerX" id="EMj-H6-mWj"/>
+                <constraint firstAttribute="centerY" secondItem="tZT-6P-aQo" secondAttribute="centerY" id="p34-o5-v5o"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="AbstractSizeClassScreen[default]"/>

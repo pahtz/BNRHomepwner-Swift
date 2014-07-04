@@ -10,13 +10,14 @@ import UIKit
 import MobileCoreServices
 
 class BNRDetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate,
-    UITextFieldDelegate {
+    UITextFieldDelegate, UIPopoverControllerDelegate {
 
     var item : BNRItem? {
     didSet {
         navigationItem.title = item!.itemName
     }
     }
+    var imagePickerPopover : UIPopoverController?
     
     @IBOutlet var nameField: UITextField
     @IBOutlet var serialNumberField: UITextField
@@ -28,6 +29,14 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
     @IBOutlet var cameraButton: UIBarButtonItem
     
     @IBAction func takePicture(sender: UIBarButtonItem) {
+        if imagePickerPopover?.popoverVisible
+        {
+            //If the popover is already up, get rid of it
+            imagePickerPopover!.dismissPopoverAnimated(true)
+            imagePickerPopover = nil
+            return
+        }
+        
         var imagePicker = UIImagePickerController()
         
         //If the device has a camera, take a pictur, otherwise,
@@ -35,7 +44,7 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera))
         {
             imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-            imagePicker.cameraOverlayView = cameraOverlayView //Gold challenge
+            //imagePicker.cameraOverlayView = cameraOverlayView //Gold challenge
         }
         else
         {
@@ -47,8 +56,21 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
         imagePicker.allowsImageEditing = true //Bronze challenge
         
         //Place image picker on the screen
-        presentViewController(imagePicker, animated: true, completion: nil)
         
+        //Check for iPad device before instantiating the popover controller
+        if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad
+        {
+            //Create a new popover controller that will display the imagepicker
+            imagePickerPopover = UIPopoverController(contentViewController: imagePicker)
+            imagePickerPopover!.delegate = self
+            
+            //Display the popover controller; sender is the camera bar button item
+            imagePickerPopover!.presentPopoverFromBarButtonItem(sender, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+        }
+        else
+        {
+            presentViewController(imagePicker, animated: true, completion: nil)
+        }
     }
     
     //Silver Challenge: Removing an Image
@@ -77,6 +99,12 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
         cameraOverlayView = UIView() //Gold Challenge - will be replaced by xib
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
+    }
+    
+    func popoverControllerDidDismissPopover(popoverController: UIPopoverController!)
+    {
+        println("User dismissed popover")
+        self.imagePickerPopover = nil
     }
     
     func prepareViewsForOrientation(orientation: UIInterfaceOrientation)
@@ -112,9 +140,20 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
         //Put that image onto the screen in our image view
         imageView.image = image
         
-        //Take image picker off the screen -
-        //you must call this dismiss method
-        dismissViewControllerAnimated(true, completion: nil)
+        //Do I have a popover?
+        if imagePickerPopover
+        {
+            //Dismiss it
+            imagePickerPopover!.dismissPopoverAnimated(true)
+            imagePickerPopover = nil
+        }
+        else
+        {
+            //Take image picker off the screen -
+            //you must call this dismiss method
+            //Dismiss the modal image picker
+            dismissViewControllerAnimated(true, completion: nil)
+        }
     }
 
     func textFieldShouldReturn(textField: UITextField) -> (Bool)
