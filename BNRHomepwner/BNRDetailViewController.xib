@@ -140,7 +140,7 @@
                 <action selector="backgroundTapped:" destination="-1" eventType="touchUpInside" id="nhF-8c-61f"/>
             </connections>
         </view>
-        <view contentMode="scaleToFill" id="9EM-eu-Ivs">
+        <view contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" id="9EM-eu-Ivs">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>

@@ -16,12 +16,16 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         //Create a new BNRItem and add it to the store
         let newItem = BNRItemStore.sharedStore.createItem()
         
-        //Figure out where that item is in the array
-        let lastRow = BNRItemStore.sharedStore.indexOfItem(newItem)
-        let indexPath = NSIndexPath(forRow: lastRow, inSection: 0)
+        var detailViewController = BNRDetailViewController(forNewItem: true)
+        detailViewController.item = newItem
         
-        //Insert the new row into the table
-        tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
+        let dismissBlock = { self.tableView.reloadData() }
+        detailViewController.dismissBlock = dismissBlock
+        
+        var navController = UINavigationController(rootViewController: detailViewController)
+        navController.modalPresentationStyle = UIModalPresentationStyle.FormSheet
+        navController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal //experiment with transition styles
+        presentViewController(navController, animated: true, completion: nil)
     }
     
     init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
@@ -91,7 +95,7 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
             return
         }
         
-        var detailViewController = BNRDetailViewController()
+        var detailViewController = BNRDetailViewController(forNewItem: false)
         
         var selectedItem = BNRItemStore.sharedStore.itemAtIndex(indexPath.row)
         

@@ -10,14 +10,15 @@
 
 import UIKit
 
-let _sharedStore = BNRItemStore()
-
 class BNRItemStore: NSObject {
     
     var privateItems : NSMutableArray = NSMutableArray()
     
-    class var sharedStore :BNRItemStore {
-        return _sharedStore
+    class var sharedStore : BNRItemStore {
+    struct Static {
+        static let instance : BNRItemStore = BNRItemStore()
+        }
+        return Static.instance
     }
 
     init()

@@ -18,6 +18,7 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
     }
     }
     var imagePickerPopover : UIPopoverController?
+    var dismissBlock : (Void)->(Void) = {}
     
     @IBOutlet var nameField: UITextField
     @IBOutlet var serialNumberField: UITextField
@@ -64,6 +65,9 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
             imagePickerPopover = UIPopoverController(contentViewController: imagePicker)
             imagePickerPopover!.delegate = self
             
+            //Chapter 17 Gold Challenge - change appearance of the popover
+            imagePickerPopover!.popoverBackgroundViewClass = BNRPopoverBackgroundView.self
+            
             //Display the popover controller; sender is the camera bar button item
             imagePickerPopover!.presentPopoverFromBarButtonItem(sender, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
         }
@@ -99,6 +103,32 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
         cameraOverlayView = UIView() //Gold Challenge - will be replaced by xib
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
+    }
+    
+    convenience init(forNewItem: Bool)
+    {
+        self.init(nibName: nil, bundle: nil)
+        
+        if forNewItem
+        {
+            var doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "save:")
+            navigationItem.rightBarButtonItem = doneItem
+            
+            var cancelItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancel:")
+            navigationItem.leftBarButtonItem = cancelItem
+        }
+    }
+    
+    func save(sender: AnyObject)
+    {
+        presentingViewController.dismissViewControllerAnimated(true, completion: dismissBlock)
+    }
+    
+    func cancel(sender: AnyObject)
+    {
+        //If the user cancelled, then remove the BNRItem from the store
+        BNRItemStore.sharedStore.removeItem(item!)
+        presentingViewController.dismissViewControllerAnimated(true, completion: dismissBlock)
     }
     
     func popoverControllerDidDismissPopover(popoverController: UIPopoverController!)
