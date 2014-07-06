@@ -26,8 +26,11 @@ class BNRItemStore: NSObject {
         super.init()
         let path = itemArchivePath()
         
-        //Error: Objective-C exception is not handled below if the file is bad or missing
-        privateItems = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as NSMutableArray
+        var fileExists = NSFileManager.defaultManager().fileExistsAtPath(path)
+        if fileExists
+        {
+            privateItems = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as NSMutableArray
+        }
         
         //If the array hadn't been saved previously, create a new empty one
         if (privateItems == nil)
