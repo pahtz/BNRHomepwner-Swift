@@ -8,24 +8,48 @@
 
 import UIKit
 
-class BNRItem: NSObject {
-    var itemName : String = "Item"
+class BNRItem: NSObject, NSCoding {
+    var itemName : String = ""
     var serialNumber : String = ""
     var valueInDollars : Int = 0
     var dateCreated : NSDate = NSDate()
     var itemKey : String!
     
-    init(name: String, value: Int, serial: String)
+    init()
     {
         super.init()
-        itemName = name
-        valueInDollars = value
-        serialNumber = serial
-        
+
         //Create an NSUUID object - and get its string representation
         let uuid = NSUUID()
         let key = uuid.UUIDString
         itemKey = key
+    }
+    
+    convenience init(name: String, value: Int, serial: String)
+    {
+        self.init()
+        itemName = name
+        valueInDollars = value
+        serialNumber = serial
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder!)
+    {
+        aCoder.encodeObject(itemName, forKey: "itemName")
+        aCoder.encodeObject(serialNumber, forKey: "serialNumber")
+        aCoder.encodeObject(dateCreated, forKey: "dateCreated")
+        aCoder.encodeObject(itemKey, forKey: "itemKey")
+        aCoder.encodeInt(CInt(valueInDollars), forKey: "valueInDollars")
+    }
+    
+    init(coder aDecoder: NSCoder!)
+    {
+        super.init()
+        itemName = aDecoder.decodeObjectForKey("itemName") as String
+        serialNumber = aDecoder.decodeObjectForKey("serialNumber") as String
+        dateCreated = aDecoder.decodeObjectForKey("dateCreated") as NSDate
+        itemKey = aDecoder.decodeObjectForKey("itemKey") as String
+        valueInDollars = Int(aDecoder.decodeIntForKey("valueInDollars"))
     }
     
     class func randomItem() -> (BNRItem)
