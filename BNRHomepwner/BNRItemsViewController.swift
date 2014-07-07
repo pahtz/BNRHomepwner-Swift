@@ -8,7 +8,10 @@
 
 import UIKit
 
-class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource,
+    UIPopoverControllerDelegate {
+    
+    var imagePopover : UIPopoverController?
     
     @IBAction func addNewItem(sender: UIButton)
     {
@@ -63,8 +66,13 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        //tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         tableView.backgroundView = UIImageView(image: UIImage(named: "Background.png"))
+        
+        //Load the NIB file
+        var nib = UINib(nibName: "BNRItemCell", bundle: nil)
+        //Register this NIB, which contains the cell
+        tableView.registerNib(nib, forCellReuseIdentifier: "BNRItemCell")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -133,11 +141,8 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
     
         //Create an instance of UITableViewCell, with default appearance
-        var cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
-        if cell == nil
-        {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "UITableViewCell")
-        }
+        //Get a new or recycled cell
+        var cell = tableView.dequeueReusableCellWithIdentifier("BNRItemCell", forIndexPath: indexPath) as BNRItemCell
         
         //Set the text on the cell with the description of item
         //that is at the nth index of items, where n = row this cell
@@ -146,17 +151,65 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         
         if indexPath.row == items.count
         {
-            cell.textLabel.text = "No more items!"
+            cell.nameLabel.text = "No more items!"
+            cell.serialNumberLabel.text = ""
+            cell.valueLabel.text = ""
+            cell.actionBlock = { println("Do nothing") }
         }
         else
         {
             let item  = items[indexPath!.row]
         
             // Configure the cell...
-            cell.textLabel.text = item.description
-            cell.textLabel.font = UIFont.systemFontOfSize(40.0)
+            cell.nameLabel.text = item.itemName
+            cell.serialNumberLabel.text = item.serialNumber
+            
+            cell.valueLabel.text = "$\(item.valueInDollars)"
+            
+            //Chapter 19 Bronze Challenge
+            if (item.valueInDollars > 50)
+            {
+                cell.valueLabel.backgroundColor = UIColor.greenColor()
+            }
+            else if (item.valueInDollars < 50)
+            {
+                cell.valueLabel.backgroundColor = UIColor.redColor()
+            }
+            
+            cell.thumbnailView.image = item.thumbnail
+            
+            weak var weakCell = cell
+            
+            cell.actionBlock = { println("Going to show image for \(item)")
+                let strongCell = weakCell
+                if (UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad)
+                {
+                    let itemKey = item.itemKey
+                    
+                    //If there is no image, we don't need to display anything
+                    var img = BNRImageStore.sharedStore.imageForKey(itemKey)
+                    if (!img) { return }
+                    
+                    //Make a rectangle for the frame of the thumbnail relative to our table view
+                    let rect = self.view.convertRect(strongCell!.thumbnailView.bounds, fromView: strongCell!.thumbnailView)
+                    
+                    //Create a new  BNRImageViewController and set its image
+                    var ivc = BNRImageViewController()
+                    ivc.image = img
+                    
+                    //Present a 600x600 popover from the rect
+                    self.imagePopover = UIPopoverController(contentViewController: ivc)
+                    self.imagePopover!.delegate = self
+                    self.imagePopover!.popoverContentSize = CGSizeMake(600,600)
+                    self.imagePopover!.presentPopoverFromRect(rect, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+                }} //end actionBlock
         }
         return cell
+    }
+    
+    func popoverControllerDidDismissPopover(popoverController: UIPopoverController)
+    {
+        imagePopover = nil
     }
     
     override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!)

@@ -22,6 +22,9 @@
 		DAC883D1195EC8A80089FB07 /* BNRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC883CF195EC8A80089FB07 /* BNRDetailViewController.xib */; };
 		DAC883D4195EF74B0089FB07 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC883D2195EF74B0089FB07 /* DatePickerViewController.swift */; };
 		DAC883D5195EF74B0089FB07 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC883D3195EF74B0089FB07 /* DatePickerViewController.xib */; };
+		DAE4FCDB196A9A26007D683E /* BNRItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4FCD9196A9A26007D683E /* BNRItemCell.swift */; };
+		DAE4FCDC196A9A26007D683E /* BNRItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE4FCDA196A9A26007D683E /* BNRItemCell.xib */; };
+		DAE4FCDE196ABC38007D683E /* BNRImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4FCDD196ABC38007D683E /* BNRImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		DAC883CF195EC8A80089FB07 /* BNRDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRDetailViewController.xib; sourceTree = "<group>"; };
 		DAC883D2195EF74B0089FB07 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		DAC883D3195EF74B0089FB07 /* DatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
+		DAE4FCD9196A9A26007D683E /* BNRItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItemCell.swift; sourceTree = "<group>"; };
+		DAE4FCDA196A9A26007D683E /* BNRItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRItemCell.xib; sourceTree = "<group>"; };
+		DAE4FCDD196ABC38007D683E /* BNRImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +105,16 @@
 				DAC883D2195EF74B0089FB07 /* DatePickerViewController.swift */,
 				DAC883D3195EF74B0089FB07 /* DatePickerViewController.xib */,
 				DAC883CE195EC8A80089FB07 /* BNRDetailViewController.swift */,
-				DAB07D801966AF13003D1FEE /* BNRPopoverBackgroundView.swift */,
 				DAC883CF195EC8A80089FB07 /* BNRDetailViewController.xib */,
+				DAE4FCD9196A9A26007D683E /* BNRItemCell.swift */,
+				DAE4FCDA196A9A26007D683E /* BNRItemCell.xib */,
 				DA88882A19612BC600CC76EA /* BNRImageStore.swift */,
 				DA2E3B70195BF02200F70B2E /* BNRItem.swift */,
 				DA2E3B72195BF19D00F70B2E /* BNRItemStore.swift */,
 				DA2E3B6C195BEC6400F70B2E /* BNRItemsViewController.swift */,
 				DA2E3B6D195BEC6400F70B2E /* BNRItemsViewController.xib */,
+				DAE4FCDD196ABC38007D683E /* BNRImageViewController.swift */,
+				DAB07D801966AF13003D1FEE /* BNRPopoverBackgroundView.swift */,
 				DA2E3B54195BEB0C00F70B2E /* Images.xcassets */,
 				DA2E3B78195C2AD900F70B2E /* Background@2x.png */,
 				DA2E3B79195C2AD900F70B2E /* Background.png */,
@@ -222,6 +231,7 @@
 				DA2E3B7A195C2AD900F70B2E /* Background@2x.png in Resources */,
 				DA2E3B7B195C2AD900F70B2E /* Background.png in Resources */,
 				DA2E3B6F195BEC6400F70B2E /* BNRItemsViewController.xib in Resources */,
+				DAE4FCDC196A9A26007D683E /* BNRItemCell.xib in Resources */,
 				DA2E3B55195BEB0C00F70B2E /* Images.xcassets in Resources */,
 				DAC883D1195EC8A80089FB07 /* BNRDetailViewController.xib in Resources */,
 			);
@@ -241,8 +251,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAE4FCDB196A9A26007D683E /* BNRItemCell.swift in Sources */,
 				DA2E3B6E195BEC6400F70B2E /* BNRItemsViewController.swift in Sources */,
 				DAB07D811966AF13003D1FEE /* BNRPopoverBackgroundView.swift in Sources */,
+				DAE4FCDE196ABC38007D683E /* BNRImageViewController.swift in Sources */,
 				DAC883D0195EC8A80089FB07 /* BNRDetailViewController.swift in Sources */,
 				DAC883D4195EF74B0089FB07 /* DatePickerViewController.swift in Sources */,
 				DA2E3B71195BF02200F70B2E /* BNRItem.swift in Sources */,

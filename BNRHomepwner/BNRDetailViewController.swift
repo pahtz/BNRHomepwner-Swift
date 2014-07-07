@@ -163,6 +163,7 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
         println("ImagePicker didFinishPickingMedia")
         // Get picked image from info dictionary
         var image = info[UIImagePickerControllerEditedImage] as UIImage //Bronze challenge change to edited image
+        item!.setThumbnailFromImage(image)
         
         //Store the image in the BNRImageStore for this key
         BNRImageStore.sharedStore.setImage(image, forKey: item!.itemKey)

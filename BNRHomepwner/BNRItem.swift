@@ -14,6 +14,7 @@ class BNRItem: NSObject, NSCoding {
     var valueInDollars : Int = 0
     var dateCreated : NSDate = NSDate()
     var itemKey : String!
+    var thumbnail : UIImage?
     
     init()
     {
@@ -40,6 +41,7 @@ class BNRItem: NSObject, NSCoding {
         aCoder.encodeObject(dateCreated, forKey: "dateCreated")
         aCoder.encodeObject(itemKey, forKey: "itemKey")
         aCoder.encodeInt(CInt(valueInDollars), forKey: "valueInDollars")
+        aCoder.encodeObject(thumbnail, forKey: "thumbnail")
     }
     
     init(coder aDecoder: NSCoder!)
@@ -50,6 +52,45 @@ class BNRItem: NSObject, NSCoding {
         dateCreated = aDecoder.decodeObjectForKey("dateCreated") as NSDate
         itemKey = aDecoder.decodeObjectForKey("itemKey") as String
         valueInDollars = Int(aDecoder.decodeIntForKey("valueInDollars"))
+        thumbnail = aDecoder.decodeObjectForKey("thumbnail") as? UIImage
+    }
+    
+    func setThumbnailFromImage(image: UIImage)
+    {
+        let origImageSize = image.size
+        
+        //The rectangle of the thumbnail
+        let newRect = CGRectMake(0,0,40,40)
+        
+        //Figure out a scaling ratio to make sure we maintain the same aspect ratio
+        let ratio = max(newRect.size.width / origImageSize.width, newRect.size.height / origImageSize.height)
+        
+        //Create a transparent bitmap context with a scaling factor
+        //equal to that of the screen
+        UIGraphicsBeginImageContextWithOptions(newRect.size, false, 0.0)
+        
+        //Create a path that is a rounded rectangle
+        var path = UIBezierPath(roundedRect: newRect, cornerRadius: 5.0)
+        
+        //Make all subsequent drawing clip to this rounded rectangle
+        path.addClip()
+        
+        //Center the image in the thumbnail rectangle
+        var projectRect = CGRectZero
+        projectRect.size.width = ratio * origImageSize.width
+        projectRect.size.height = ratio * origImageSize.height
+        projectRect.origin.x = (newRect.size.width - projectRect.size.width) / 2.0
+        projectRect.origin.y = (newRect.size.height - projectRect.size.height) / 2.0
+        
+        //Draw the image on it
+        image.drawInRect(projectRect)
+        
+        //Get the image from the image context; keep it as our thumbnail
+        var smallImage = UIGraphicsGetImageFromCurrentImageContext()
+        thumbnail = smallImage
+        
+        //Cleanup image context resources; we're done
+        UIGraphicsEndImageContext()
     }
     
     class func randomItem() -> (BNRItem)
