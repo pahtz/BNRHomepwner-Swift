@@ -17,13 +17,47 @@ class BNRItemCell: UITableViewCell {
     @IBOutlet var serialNumberLabel: UILabel
     @IBOutlet var valueLabel: UILabel
     
+    //@IBOutlet var imageViewWidthConstraint: NSLayoutConstraint
+    @IBOutlet var imageViewHeightConstraint: NSLayoutConstraint
+    
     @IBAction func showImage() {
         if (actionBlock != nil) { actionBlock!() } //Error: the check for nil doesn't work
+    }
+    
+    func updateInterfaceForDynamicTypeSize()
+    {
+        let font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        nameLabel.font = font
+        serialNumberLabel.font = font
+        valueLabel.font = font
+        
+        let imageSizeDictionary = [UIContentSizeCategoryExtraSmall : 40,
+            UIContentSizeCategorySmall : 40,
+            UIContentSizeCategoryMedium : 40,
+            UIContentSizeCategoryLarge : 40,
+            UIContentSizeCategoryExtraLarge : 45,
+            UIContentSizeCategoryExtraExtraLarge : 55,
+            UIContentSizeCategoryExtraExtraExtraLarge : 65]
+        
+        let userSize = UIApplication.sharedApplication().preferredContentSizeCategory
+        
+        let imageSize = imageSizeDictionary[userSize] as Float
+        imageViewHeightConstraint.constant = imageSize
+        //imageViewWidthConstraint.constant = imageSize
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        updateInterfaceForDynamicTypeSize()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterfaceForDynamicTypeSize", name: UIContentSizeCategoryDidChangeNotification, object: nil)
+        
+        var constraint = NSLayoutConstraint(item: thumbnailView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: thumbnailView, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0)
+        thumbnailView.addConstraint(constraint)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

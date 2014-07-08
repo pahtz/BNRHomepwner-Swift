@@ -28,6 +28,9 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
     @IBOutlet var toobar: UIToolbar
     @IBOutlet strong var cameraOverlayView: UIView //Gold challenge
     @IBOutlet var cameraButton: UIBarButtonItem
+    @IBOutlet var nameLabel: UILabel
+    @IBOutlet var serialNumberLabel: UILabel
+    @IBOutlet var valueLabel: UILabel
     
     @IBAction func takePicture(sender: UIBarButtonItem) {
         if imagePickerPopover?.popoverVisible
@@ -117,6 +120,27 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
             var cancelItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancel:")
             navigationItem.leftBarButtonItem = cancelItem
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateFonts", name: UIContentSizeCategoryDidChangeNotification, object: nil)
+    }
+    
+    deinit
+    {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func updateFonts()
+    {
+        let font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        
+        nameLabel.font = font
+        serialNumberLabel.font = font
+        valueLabel.font = font
+        dateLabel.font = font
+        
+        nameField.font = font
+        serialNumberField.font = font
+        valueField.font = font
     }
     
     func save(sender: AnyObject)
@@ -216,6 +240,8 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
         //Get the image for its image key from the image store
         //and use that image to put on the screen in the imageView
         imageView.image = BNRImageStore.sharedStore.imageForKey(item!.itemKey)
+        
+        updateFonts()
     }
     
     override func viewWillDisappear(animated: Bool)

@@ -61,6 +61,12 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         navItem.rightBarButtonItem = bbi
         
         navItem.leftBarButtonItem = editButtonItem()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTableViewForDynamicTypeSize", name: UIContentSizeCategoryDidChangeNotification, object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func viewDidLoad() {
@@ -84,6 +90,25 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
+        //tableView.reloadData()
+        updateTableViewForDynamicTypeSize()
+    }
+    
+    func updateTableViewForDynamicTypeSize()
+    {
+        let cellHeightDictionary = [ UIContentSizeCategoryExtraSmall : 44,
+            UIContentSizeCategorySmall : 44,
+            UIContentSizeCategoryMedium : 44,
+            UIContentSizeCategoryLarge : 44,
+            UIContentSizeCategoryExtraLarge : 55,
+            UIContentSizeCategoryExtraExtraLarge : 65,
+            UIContentSizeCategoryExtraExtraExtraLarge : 75 ]
+    
+        let userSize = UIApplication.sharedApplication().preferredContentSizeCategory
+        
+        let cellHeight = cellHeightDictionary[userSize] as CGFloat
+        tableView.rowHeight = cellHeight///UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = cellHeight
         tableView.reloadData()
     }
     
@@ -125,18 +150,18 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         return BNRItemStore.sharedStore.itemCount() + 1  //add +1 for Silver Challenge
     }
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
-    {
-        let last = BNRItemStore.sharedStore.itemCount()
-        if (indexPath.row == last)
-        {
-            return 44.0
-        }
-        else
-        {
-            return 60.0
-        }
-    }
+//    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
+//    {
+//        let last = BNRItemStore.sharedStore.itemCount()
+//        if (indexPath.row == last)
+//        {
+//            return 44.0
+//        }
+//        else
+//        {
+//            return 60.0
+//        }
+//    }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
     
