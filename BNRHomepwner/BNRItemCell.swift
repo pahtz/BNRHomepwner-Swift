@@ -21,7 +21,7 @@ class BNRItemCell: UITableViewCell {
     @IBOutlet var imageViewHeightConstraint: NSLayoutConstraint
     
     @IBAction func showImage() {
-        if (actionBlock != nil) { actionBlock!() } //Error: the check for nil doesn't work
+        actionBlock!()
     }
     
     func updateInterfaceForDynamicTypeSize()
@@ -41,7 +41,7 @@ class BNRItemCell: UITableViewCell {
         
         let userSize = UIApplication.sharedApplication().preferredContentSizeCategory
         
-        let imageSize = imageSizeDictionary[userSize] as Float
+        let imageSize = imageSizeDictionary[userSize] as CGFloat
         imageViewHeightConstraint.constant = imageSize
         //imageViewWidthConstraint.constant = imageSize
     }

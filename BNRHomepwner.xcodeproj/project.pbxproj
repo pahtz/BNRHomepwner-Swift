@@ -7,21 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA1B1359196E7012008F91EA /* BNRAssetTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1B1358196E7012008F91EA /* BNRAssetTypeViewController.swift */; };
 		DA2E3B53195BEB0C00F70B2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E3B52195BEB0C00F70B2E /* AppDelegate.swift */; };
 		DA2E3B55195BEB0C00F70B2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2E3B54195BEB0C00F70B2E /* Images.xcassets */; };
 		DA2E3B61195BEB0C00F70B2E /* BNRHomepwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E3B60195BEB0C00F70B2E /* BNRHomepwnerTests.swift */; };
 		DA2E3B6E195BEC6400F70B2E /* BNRItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E3B6C195BEC6400F70B2E /* BNRItemsViewController.swift */; };
 		DA2E3B6F195BEC6400F70B2E /* BNRItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2E3B6D195BEC6400F70B2E /* BNRItemsViewController.xib */; };
-		DA2E3B71195BF02200F70B2E /* BNRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E3B70195BF02200F70B2E /* BNRItem.swift */; };
 		DA2E3B73195BF19D00F70B2E /* BNRItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E3B72195BF19D00F70B2E /* BNRItemStore.swift */; };
 		DA2E3B7A195C2AD900F70B2E /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2E3B78195C2AD900F70B2E /* Background@2x.png */; };
 		DA2E3B7B195C2AD900F70B2E /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2E3B79195C2AD900F70B2E /* Background.png */; };
+		DA38B7C2196D377C00347764 /* BNRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38B7C1196D377C00347764 /* BNRItem.swift */; };
+		DA4E5615196D28FB00ABF439 /* BNRImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E5614196D28FB00ABF439 /* BNRImageTransformer.swift */; };
 		DA88882B19612BC600CC76EA /* BNRImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88882A19612BC600CC76EA /* BNRImageStore.swift */; };
 		DAB07D811966AF13003D1FEE /* BNRPopoverBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB07D801966AF13003D1FEE /* BNRPopoverBackgroundView.swift */; };
 		DAC883D0195EC8A80089FB07 /* BNRDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC883CE195EC8A80089FB07 /* BNRDetailViewController.swift */; };
 		DAC883D1195EC8A80089FB07 /* BNRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC883CF195EC8A80089FB07 /* BNRDetailViewController.xib */; };
 		DAC883D4195EF74B0089FB07 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC883D2195EF74B0089FB07 /* DatePickerViewController.swift */; };
 		DAC883D5195EF74B0089FB07 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC883D3195EF74B0089FB07 /* DatePickerViewController.xib */; };
+		DAE276C3196D26BE007792A6 /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAE276C1196D26BE007792A6 /* Homepwner.xcdatamodeld */; };
 		DAE4FCDB196A9A26007D683E /* BNRItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4FCD9196A9A26007D683E /* BNRItemCell.swift */; };
 		DAE4FCDC196A9A26007D683E /* BNRItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE4FCDA196A9A26007D683E /* BNRItemCell.xib */; };
 		DAE4FCDE196ABC38007D683E /* BNRImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4FCDD196ABC38007D683E /* BNRImageViewController.swift */; };
@@ -38,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA1B1358196E7012008F91EA /* BNRAssetTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRAssetTypeViewController.swift; sourceTree = "<group>"; };
 		DA2E3B4D195BEB0C00F70B2E /* BNRHomepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BNRHomepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2E3B51195BEB0C00F70B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA2E3B52195BEB0C00F70B2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,16 +51,19 @@
 		DA2E3B60195BEB0C00F70B2E /* BNRHomepwnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BNRHomepwnerTests.swift; sourceTree = "<group>"; };
 		DA2E3B6C195BEC6400F70B2E /* BNRItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItemsViewController.swift; sourceTree = "<group>"; };
 		DA2E3B6D195BEC6400F70B2E /* BNRItemsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRItemsViewController.xib; sourceTree = "<group>"; };
-		DA2E3B70195BF02200F70B2E /* BNRItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItem.swift; sourceTree = "<group>"; };
 		DA2E3B72195BF19D00F70B2E /* BNRItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItemStore.swift; sourceTree = "<group>"; };
 		DA2E3B78195C2AD900F70B2E /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
 		DA2E3B79195C2AD900F70B2E /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		DA38B7C0196D377B00347764 /* BNRHomepwner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BNRHomepwner-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		DA38B7C1196D377C00347764 /* BNRItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItem.swift; sourceTree = "<group>"; };
+		DA4E5614196D28FB00ABF439 /* BNRImageTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRImageTransformer.swift; sourceTree = "<group>"; };
 		DA88882A19612BC600CC76EA /* BNRImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRImageStore.swift; sourceTree = "<group>"; };
 		DAB07D801966AF13003D1FEE /* BNRPopoverBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRPopoverBackgroundView.swift; sourceTree = "<group>"; };
 		DAC883CE195EC8A80089FB07 /* BNRDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRDetailViewController.swift; sourceTree = "<group>"; };
 		DAC883CF195EC8A80089FB07 /* BNRDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRDetailViewController.xib; sourceTree = "<group>"; };
 		DAC883D2195EF74B0089FB07 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		DAC883D3195EF74B0089FB07 /* DatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
+		DAE276C2196D26BE007792A6 /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
 		DAE4FCD9196A9A26007D683E /* BNRItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItemCell.swift; sourceTree = "<group>"; };
 		DAE4FCDA196A9A26007D683E /* BNRItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRItemCell.xib; sourceTree = "<group>"; };
 		DAE4FCDD196ABC38007D683E /* BNRImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRImageViewController.swift; sourceTree = "<group>"; };
@@ -106,18 +113,22 @@
 				DAC883D3195EF74B0089FB07 /* DatePickerViewController.xib */,
 				DAC883CE195EC8A80089FB07 /* BNRDetailViewController.swift */,
 				DAC883CF195EC8A80089FB07 /* BNRDetailViewController.xib */,
+				DA38B7C1196D377C00347764 /* BNRItem.swift */,
 				DAE4FCD9196A9A26007D683E /* BNRItemCell.swift */,
 				DAE4FCDA196A9A26007D683E /* BNRItemCell.xib */,
+				DA4E5614196D28FB00ABF439 /* BNRImageTransformer.swift */,
 				DA88882A19612BC600CC76EA /* BNRImageStore.swift */,
-				DA2E3B70195BF02200F70B2E /* BNRItem.swift */,
 				DA2E3B72195BF19D00F70B2E /* BNRItemStore.swift */,
+				DA1B1358196E7012008F91EA /* BNRAssetTypeViewController.swift */,
 				DA2E3B6C195BEC6400F70B2E /* BNRItemsViewController.swift */,
 				DA2E3B6D195BEC6400F70B2E /* BNRItemsViewController.xib */,
 				DAE4FCDD196ABC38007D683E /* BNRImageViewController.swift */,
 				DAB07D801966AF13003D1FEE /* BNRPopoverBackgroundView.swift */,
+				DAE276C1196D26BE007792A6 /* Homepwner.xcdatamodeld */,
 				DA2E3B54195BEB0C00F70B2E /* Images.xcassets */,
 				DA2E3B78195C2AD900F70B2E /* Background@2x.png */,
 				DA2E3B79195C2AD900F70B2E /* Background.png */,
+				DA38B7C0196D377B00347764 /* BNRHomepwner-Bridging-Header.h */,
 				DA2E3B50195BEB0C00F70B2E /* Supporting Files */,
 			);
 			path = BNRHomepwner;
@@ -251,13 +262,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA4E5615196D28FB00ABF439 /* BNRImageTransformer.swift in Sources */,
+				DA38B7C2196D377C00347764 /* BNRItem.swift in Sources */,
 				DAE4FCDB196A9A26007D683E /* BNRItemCell.swift in Sources */,
 				DA2E3B6E195BEC6400F70B2E /* BNRItemsViewController.swift in Sources */,
 				DAB07D811966AF13003D1FEE /* BNRPopoverBackgroundView.swift in Sources */,
 				DAE4FCDE196ABC38007D683E /* BNRImageViewController.swift in Sources */,
 				DAC883D0195EC8A80089FB07 /* BNRDetailViewController.swift in Sources */,
+				DAE276C3196D26BE007792A6 /* Homepwner.xcdatamodeld in Sources */,
+				DA1B1359196E7012008F91EA /* BNRAssetTypeViewController.swift in Sources */,
 				DAC883D4195EF74B0089FB07 /* DatePickerViewController.swift in Sources */,
-				DA2E3B71195BF02200F70B2E /* BNRItem.swift in Sources */,
 				DA2E3B53195BEB0C00F70B2E /* AppDelegate.swift in Sources */,
 				DA2E3B73195BF19D00F70B2E /* BNRItemStore.swift in Sources */,
 				DA88882B19612BC600CC76EA /* BNRImageStore.swift in Sources */,
@@ -367,10 +381,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BNRHomepwner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BNRHomepwner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -379,10 +396,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BNRHomepwner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BNRHomepwner-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -453,6 +472,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DAE276C1196D26BE007792A6 /* Homepwner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DAE276C2196D26BE007792A6 /* Homepwner.xcdatamodel */,
+			);
+			currentVersion = DAE276C2196D26BE007792A6 /* Homepwner.xcdatamodel */;
+			path = Homepwner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DA2E3B45195BEB0C00F70B2E /* Project object */;
 }

@@ -192,7 +192,7 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
             cell.valueLabel.text = "$\(item.valueInDollars)"
             
             //Chapter 19 Bronze Challenge
-            if (item.valueInDollars > 50)
+/*            if (item.valueInDollars > 50)
             {
                 cell.valueLabel.backgroundColor = UIColor.greenColor()
             }
@@ -200,7 +200,7 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
             {
                 cell.valueLabel.backgroundColor = UIColor.redColor()
             }
-            
+*/            
             cell.thumbnailView.image = item.thumbnail
             
             weak var weakCell = cell

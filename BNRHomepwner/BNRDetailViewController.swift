@@ -26,11 +26,21 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
     @IBOutlet var dateLabel: UILabel
     @IBOutlet var imageView: UIImageView
     @IBOutlet var toobar: UIToolbar
-    @IBOutlet strong var cameraOverlayView: UIView //Gold challenge
+    @IBOutlet strong var cameraOverlayView: UIView //Gold challenge - Depreciated API - not used
     @IBOutlet var cameraButton: UIBarButtonItem
     @IBOutlet var nameLabel: UILabel
     @IBOutlet var serialNumberLabel: UILabel
     @IBOutlet var valueLabel: UILabel
+    @IBOutlet var assetTypeButton: UIBarButtonItem
+    
+    @IBAction func showAssetTypePicker(sender: UIBarButtonItem) {
+        view.endEditing(true)
+        
+        var avc = BNRAssetTypeViewController()
+        avc.item = item
+        
+        navigationController.pushViewController(avc, animated: true)
+    }
     
     @IBAction func takePicture(sender: UIBarButtonItem) {
         if imagePickerPopover?.popoverVisible
@@ -55,9 +65,9 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
             imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         }
         imagePicker.delegate = self
-        imagePicker.mediaTypes = [kUTTypeImage]
+        //imagePicker.mediaTypes = [kUTTypeImage]
         imagePicker.allowsEditing = true
-        imagePicker.allowsImageEditing = true //Bronze challenge
+        //imagePicker.allowsImageEditing = true //Bronze challenge - depreciated API
         
         //Place image picker on the screen
         
@@ -241,6 +251,22 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
         //and use that image to put on the screen in the imageView
         imageView.image = BNRImageStore.sharedStore.imageForKey(item!.itemKey)
         
+        var typeLabel : String?
+        if (item!.assetType)
+        {
+            typeLabel = item!.assetType!.valueForKey("label") as String?
+            if (!typeLabel)
+            {
+                typeLabel = "None"
+            }
+        }
+        else
+        {
+          typeLabel = "None"
+        }
+    
+        assetTypeButton.title = "Type: \(typeLabel)"
+    
         updateFonts()
     }
     
@@ -252,12 +278,12 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
         view.endEditing(true)
         
         // "Save" changes to item
-        var editedItem = self.item!
-        editedItem.itemName = nameField.text
-        editedItem.serialNumber = serialNumberField.text
+        item!.itemName = nameField.text
+        item!.serialNumber = serialNumberField.text
         if let value = valueField.text.toInt()
         {
-            editedItem.valueInDollars = value
+            //item!.valueInDollars = Int32(value) //crashes
+            item!.setValue(value, forKey: "valueInDollars")
         }
     }
     
