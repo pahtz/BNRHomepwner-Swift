@@ -9,7 +9,7 @@
 import UIKit
 
 class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource,
-    UIPopoverControllerDelegate {
+    UIPopoverControllerDelegate, UIViewControllerRestoration, UIDataSourceModelAssociation {
     
     var imagePopover : UIPopoverController?
     
@@ -28,7 +28,70 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         var navController = UINavigationController(rootViewController: detailViewController)
         navController.modalPresentationStyle = UIModalPresentationStyle.FormSheet
         navController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal //experiment with transition styles
+        
+        navController.restorationIdentifier = NSStringFromClass(navController.dynamicType)
+        
         presentViewController(navController, animated: true, completion: nil)
+    }
+    
+    class func viewControllerWithRestorationIdentifierPath(identifierComponents: [AnyObject]!, coder: NSCoder!) -> UIViewController!
+    {
+        return BNRItemsViewController()
+    }
+    
+    override func encodeRestorableStateWithCoder(coder: NSCoder!)
+    {
+        println("Saving state of ItemsViewController")
+        
+        coder.encodeBool(self.editing, forKey: "TableViewIsEditing")
+        
+        super.encodeRestorableStateWithCoder(coder)
+    }
+    
+    override func decodeRestorableStateWithCoder(coder: NSCoder!)
+    {
+        println("Restoring ItemsViewController")
+        self.editing = coder.decodeBoolForKey("TableViewIsEditing")
+        
+        super.decodeRestorableStateWithCoder(coder)
+    }
+    
+    func modelIdentifierForElementAtIndexPath(idx: NSIndexPath!, inView view: UIView!) -> String!
+    {
+        var identifier : String = ""
+    
+        if (idx.row == BNRItemStore.sharedStore.itemCount()) //last row
+        {
+            return identifier
+        }
+        
+        if (idx) { if(view) //compiler bug - should use &&
+        {
+            //Return an identifier of the given NSIndexPath, in case next time the data source changes
+            let item = BNRItemStore.sharedStore.allItems()[idx.row]
+            identifier = item.itemKey
+        }}
+        
+        return identifier
+    }
+    
+    func indexPathForElementWithModelIdentifier(identifier: String!, inView view: UIView!) -> NSIndexPath!
+    {
+        var indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        if (identifier) { if (view) //compiler bug - should use &&
+        {
+            let items = BNRItemStore.sharedStore.allItems()
+            for item in items
+            {
+                if identifier == item.itemKey
+                {
+                    let row = BNRItemStore.sharedStore.indexOfItem(item)
+                    indexPath = NSIndexPath(forRow: row, inSection: 0)
+                    break;
+                }
+            }
+        }}
+        return indexPath
     }
     
     init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
@@ -52,6 +115,9 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         // Custom initialization
         var navItem = navigationItem
         navItem.title = "Homepwner"
+        
+        restorationIdentifier = NSStringFromClass(self.dynamicType)
+        restorationClass = self.dynamicType
         
         //Create a new bar button item that will send
         //addNewItem() to BNRItemsViewController
@@ -80,6 +146,7 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         //Register this NIB, which contains the cell
         tableView.registerNib(nib, forCellReuseIdentifier: "BNRItemCell")
 
+        tableView.restorationIdentifier = "BNRItemsViewControllerTableView"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         

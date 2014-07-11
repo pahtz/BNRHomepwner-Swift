@@ -71,12 +71,12 @@
                   symbolName = "BNRHomepwner.BNRItemStore.init (BNRHomepwner.BNRItemStore.Type)() -&gt; BNRHomepwner.BNRItemStore"
                   moduleName = "BNRHomepwner"
                   urlString = "file:///Users/paul/GitHub/BNRHomepwner-Swift/BNRHomepwner/BNRItemStore.swift"
-                  timestampString = "426674446.031507"
+                  timestampString = "426762657.378236"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
                   endingLineNumber = "42"
-                  offsetFromSymbolStart = "1638">
+                  offsetFromSymbolStart = "2040">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -85,12 +85,12 @@
                   symbolName = "BNRHomepwner.BNRItemStore.init (BNRHomepwner.BNRItemStore.Type)() -&gt; BNRHomepwner.BNRItemStore"
                   moduleName = "BNRHomepwner"
                   urlString = "file:///Users/paul/GitHub/BNRHomepwner-Swift/BNRHomepwner/BNRItemStore.swift"
-                  timestampString = "426674446.031621"
+                  timestampString = "426762657.378375"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
                   endingLineNumber = "42"
-                  offsetFromSymbolStart = "3538">
+                  offsetFromSymbolStart = "4096">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -108,6 +108,54 @@
             startingLineNumber = "90"
             endingLineNumber = "90"
             landmarkName = "createItem()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BNRHomepwner/BNRItemsViewController.swift"
+            timestampString = "426770190.642136"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "init(style:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BNRHomepwner/BNRItemsViewController.swift"
+            timestampString = "426770190.642136"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "init(style:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BNRHomepwner/BNRDetailViewController.swift"
+            timestampString = "426765208.00748"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "decodeRestorableStateWithCoder(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

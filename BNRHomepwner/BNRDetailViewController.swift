@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 
 class BNRDetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate,
-    UITextFieldDelegate, UIPopoverControllerDelegate {
+    UITextFieldDelegate, UIPopoverControllerDelegate, UIViewControllerRestoration {
 
     var item : BNRItem? {
     didSet {
@@ -106,6 +106,46 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
         view.endEditing(true)
     }
     
+    class func viewControllerWithRestorationIdentifierPath(identifierComponents: [AnyObject]!, coder: NSCoder!) -> UIViewController!
+    {
+        var isNew : Bool = false
+        if (identifierComponents.count == 3) { isNew = true }
+        
+        return BNRDetailViewController(forNewItem: isNew)
+    }
+    
+    override func encodeRestorableStateWithCoder(coder: NSCoder!)
+    {
+        println("Saving state of DetailViewController")
+        
+        coder.encodeObject(item!.itemKey, forKey: "item.itemKey")
+        
+        //Save changes to item
+        item!.itemName = nameField.text
+        item!.serialNumber = serialNumberField.text
+        item!.setValue(valueField.text.toInt(), forKey: "valueInDollars")
+        
+        //Have store save changes to disk
+        BNRItemStore.sharedStore.saveChanges()
+        
+        super.encodeRestorableStateWithCoder(coder)
+    }
+
+    override func decodeRestorableStateWithCoder(coder: NSCoder!)
+    {
+        println("Restoring DetailViewController")
+        
+        var itemKey = coder.decodeObjectForKey("item.itemKey") as String
+        for iterItem in BNRItemStore.sharedStore.allItems()
+        {
+            if itemKey == iterItem.itemKey
+            {
+                item = iterItem
+                break;
+            }
+        }
+    }
+    
     init(coder aDecoder: NSCoder!)
     {
         cameraOverlayView = UIView() //Gold Challenge - will be replaced by xib
@@ -121,6 +161,9 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
     convenience init(forNewItem: Bool)
     {
         self.init(nibName: nil, bundle: nil)
+        
+        restorationIdentifier = NSStringFromClass(self.dynamicType)
+        restorationClass = self.dynamicType
         
         if forNewItem
         {
