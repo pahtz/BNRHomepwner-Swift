@@ -300,15 +300,15 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
             typeLabel = item!.assetType!.valueForKey("label") as String?
             if (!typeLabel)
             {
-                typeLabel = "None"
+                typeLabel = NSLocalizedString("None", tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "Type label None")
             }
         }
         else
         {
-          typeLabel = "None"
+          typeLabel = NSLocalizedString("None", tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "Type label None")
         }
     
-        assetTypeButton.title = "Type: \(typeLabel)"
+        assetTypeButton.title = NSLocalizedString("Type:", tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "Asset type button")  + "\(typeLabel)"
     
         updateFonts()
     }

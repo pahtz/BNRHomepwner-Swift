@@ -12,6 +12,10 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
     UIPopoverControllerDelegate, UIViewControllerRestoration, UIDataSourceModelAssociation {
     
     var imagePopover : UIPopoverController?
+    struct localization
+    {
+        static var currencyFormatter = NSNumberFormatter()
+    }
     
     @IBAction func addNewItem(sender: UIButton)
     {
@@ -114,8 +118,7 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         super.init(style: UITableViewStyle.Plain)
         // Custom initialization
         var navItem = navigationItem
-        navItem.title = "Homepwner"
-        
+        navItem.title = NSLocalizedString("Homepwner", tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "Name of the application")
         restorationIdentifier = NSStringFromClass(self.dynamicType)
         restorationClass = self.dynamicType
         
@@ -128,11 +131,23 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
         
         navItem.leftBarButtonItem = editButtonItem()
         
+        //Create a number formatter for currency
+        localization.currencyFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTableViewForDynamicTypeSize", name: UIContentSizeCategoryDidChangeNotification, object: nil)
+        
+        //Register for locale change notifications
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "localeChanged", name: NSCurrentLocaleDidChangeNotification, object: nil)
     }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func localeChanged()
+    {
+        println("Locale changed")
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -255,8 +270,8 @@ class BNRItemsViewController: UITableViewController, UITableViewDelegate, UITabl
             // Configure the cell...
             cell.nameLabel.text = item.itemName
             cell.serialNumberLabel.text = item.serialNumber
-            
-            cell.valueLabel.text = "$\(item.valueInDollars)"
+            //cell.valueLabel.text = "$\(item.valueInDollars)"
+            cell.valueLabel.text = localization.currencyFormatter.stringFromNumber(NSNumber(int: item.valueInDollars))
             
             //Chapter 19 Bronze Challenge
 /*            if (item.valueInDollars > 50)

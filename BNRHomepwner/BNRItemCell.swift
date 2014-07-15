@@ -23,7 +23,7 @@ class BNRItemCell: UITableViewCell {
     @IBAction func showImage() {
         actionBlock!()
     }
-    
+     
     func updateInterfaceForDynamicTypeSize()
     {
         let font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)

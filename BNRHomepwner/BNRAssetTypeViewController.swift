@@ -26,6 +26,8 @@ class BNRAssetTypeViewController: UITableViewController {
     init()
     {
         super.init(style: UITableViewStyle.Plain)
+        
+        navigationItem.title = NSLocalizedString("Asset Type", tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "BNRAssetTypeViewController title")
     }
 
     convenience init(style: UITableViewStyle)
