@@ -323,11 +323,22 @@ class BNRDetailViewController: UIViewController, UINavigationControllerDelegate,
         // "Save" changes to item
         item!.itemName = nameField.text
         item!.serialNumber = serialNumberField.text
-        if let value = valueField.text.toInt()
+        if let newValue = valueField.text.toInt()
         {
-            //item!.valueInDollars = Int32(value) //crashes
-            item!.setValue(value, forKey: "valueInDollars")
+            //Is it changed?
+            if (newValue != item!.valueForKey("valueInDollars") as NSNumber)
+            {
+                //Put it in the item
+                //item!.valueInDollars = Int32(value) //crashes
+                item!.setValue(newValue, forKey: "valueInDollars")
+                
+                //Store it as the default value for the next item
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setInteger(newValue, forKey: BNRNextItemValuePrefsKey)
+            }
         }
+        
+        
     }
     
     override func viewDidLoad() {

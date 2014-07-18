@@ -8,10 +8,21 @@
 
 import UIKit
 
+let BNRNextItemValuePrefsKey = "NextItemValue"
+let BNRNextItemNamePrefsKey = "NextItemName"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
+    
+    init()
+    {
+        println("AppDelegate initialize()")
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let factorySettings = [ BNRNextItemValuePrefsKey : 75, BNRNextItemNamePrefsKey : "Coffee Cup"]
+        defaults.registerDefaults(factorySettings)
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         //self.window = UIWindow(frame: UIScreen.mainScreen().bounds)

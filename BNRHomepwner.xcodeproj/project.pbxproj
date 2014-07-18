@@ -19,6 +19,7 @@
 		DA2E3B7B195C2AD900F70B2E /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2E3B79195C2AD900F70B2E /* Background.png */; };
 		DA38B7C2196D377C00347764 /* BNRItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38B7C1196D377C00347764 /* BNRItem.swift */; };
 		DA4E5615196D28FB00ABF439 /* BNRImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E5614196D28FB00ABF439 /* BNRImageTransformer.swift */; };
+		DA6E2D941979805100726731 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA6E2D931979805100726731 /* Settings.bundle */; };
 		DA88882B19612BC600CC76EA /* BNRImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88882A19612BC600CC76EA /* BNRImageStore.swift */; };
 		DAB07D811966AF13003D1FEE /* BNRPopoverBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB07D801966AF13003D1FEE /* BNRPopoverBackgroundView.swift */; };
 		DAC883D0195EC8A80089FB07 /* BNRDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC883CE195EC8A80089FB07 /* BNRDetailViewController.swift */; };
@@ -58,6 +59,7 @@
 		DA38B7C0196D377B00347764 /* BNRHomepwner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BNRHomepwner-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		DA38B7C1196D377C00347764 /* BNRItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRItem.swift; sourceTree = "<group>"; };
 		DA4E5614196D28FB00ABF439 /* BNRImageTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRImageTransformer.swift; sourceTree = "<group>"; };
+		DA6E2D931979805100726731 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		DA88882A19612BC600CC76EA /* BNRImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRImageStore.swift; sourceTree = "<group>"; };
 		DAB07D801966AF13003D1FEE /* BNRPopoverBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNRPopoverBackgroundView.swift; sourceTree = "<group>"; };
 		DAC08AAC1975860300C9A515 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/BNRDetailViewController.xib; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				DA2E3B52195BEB0C00F70B2E /* AppDelegate.swift */,
+				DA6E2D931979805100726731 /* Settings.bundle */,
 				DAE3B60D19757B5C0040A799 /* Localizable.strings */,
 				DAC883D2195EF74B0089FB07 /* DatePickerViewController.swift */,
 				DAC883D3195EF74B0089FB07 /* DatePickerViewController.xib */,
@@ -253,6 +256,7 @@
 				DA2E3B6F195BEC6400F70B2E /* BNRItemsViewController.xib in Resources */,
 				DAE3B60F19757B5C0040A799 /* Localizable.strings in Resources */,
 				DAE041891974D91A0082F7B7 /* BNRItemCell.xib in Resources */,
+				DA6E2D941979805100726731 /* Settings.bundle in Resources */,
 				DA2E3B55195BEB0C00F70B2E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

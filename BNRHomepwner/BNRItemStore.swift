@@ -95,6 +95,14 @@ class BNRItemStore: NSObject {
         var item = NSEntityDescription.insertNewObjectForEntityForName("BNRItem", inManagedObjectContext: context) as BNRItem
         //item.orderingValue = order
         item.setValue(order, forKey: "orderingValue")
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        item.setValue(defaults.integerForKey(BNRNextItemValuePrefsKey), forKey: "valueInDollars")
+        item.setValue(defaults.objectForKey(BNRNextItemNamePrefsKey) as String, forKey: "itemName")
+        
+        //Just for fun, list out all the defaults
+        println("defaults = \(defaults.dictionaryRepresentation)")
+        
         privateItems!.addObject(item)
         return item
     }

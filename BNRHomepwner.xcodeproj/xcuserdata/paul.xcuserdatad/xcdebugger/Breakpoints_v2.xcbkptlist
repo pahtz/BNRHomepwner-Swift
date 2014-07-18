@@ -71,7 +71,7 @@
                   symbolName = "BNRHomepwner.BNRItemStore.init (BNRHomepwner.BNRItemStore.Type)() -&gt; BNRHomepwner.BNRItemStore"
                   moduleName = "BNRHomepwner"
                   urlString = "file:///Users/paul/GitHub/BNRHomepwner-Swift/BNRHomepwner/BNRItemStore.swift"
-                  timestampString = "427085656.984381"
+                  timestampString = "427392578.271563"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
@@ -85,7 +85,7 @@
                   symbolName = "BNRHomepwner.BNRItemStore.init (BNRHomepwner.BNRItemStore.Type)() -&gt; BNRHomepwner.BNRItemStore"
                   moduleName = "BNRHomepwner"
                   urlString = "file:///Users/paul/GitHub/BNRHomepwner-Swift/BNRHomepwner/BNRItemStore.swift"
-                  timestampString = "427085656.984536"
+                  timestampString = "427392578.271707"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
@@ -205,6 +205,52 @@
             endingLineNumber = "17"
             landmarkName = "localization"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BNRHomepwner/BNRDetailViewController.swift"
+            timestampString = "427392281.811099"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "329"
+            endingLineNumber = "329"
+            landmarkName = "viewWillDisappear(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BNRHomepwner.BNRDetailViewController.viewWillDisappear (BNRHomepwner.BNRDetailViewController)(Swift.Bool) -&gt; ()"
+                  moduleName = "BNRHomepwner"
+                  urlString = "file:///Users/paul/GitHub/BNRHomepwner-Swift/BNRHomepwner/BNRDetailViewController.swift"
+                  timestampString = "427392578.2889"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "329"
+                  endingLineNumber = "329"
+                  offsetFromSymbolStart = "3512">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BNRHomepwner.BNRDetailViewController.viewWillDisappear (BNRHomepwner.BNRDetailViewController)(Swift.Bool) -&gt; ()"
+                  moduleName = "BNRHomepwner"
+                  urlString = "file:///Users/paul/GitHub/BNRHomepwner-Swift/BNRHomepwner/BNRDetailViewController.swift"
+                  timestampString = "427392578.288997"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "329"
+                  endingLineNumber = "329"
+                  offsetFromSymbolStart = "5604">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
