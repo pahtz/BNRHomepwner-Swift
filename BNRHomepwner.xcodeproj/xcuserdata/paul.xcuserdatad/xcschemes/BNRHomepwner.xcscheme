@@ -59,8 +59,8 @@
       debugDocumentVersioning = "YES"
       debugXPCServices = "NO"
       allowLocationSimulation = "YES"
-      language = "es"
-      region = "ES">
+      language = "en"
+      region = "HK">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
